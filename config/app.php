@@ -12,7 +12,7 @@ return [
     | any other location as required by the application or its packages.
     */
 
-    'name' => env('APPLICATION_NAME') ?: 'PJ Blog',
+    'name' => env('APPLICATION_NAME') ?: 'PJJ Blog',
 
     /*
     |--------------------------------------------------------------------------
@@ -79,7 +79,7 @@ return [
     |
     */
 
-    'locale' => env('APP_LOCAL') ?: 'en',
+    'locale' => env('APP_LOCALE') ?: 'en',
 
     /*
     |--------------------------------------------------------------------------
