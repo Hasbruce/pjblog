@@ -6,7 +6,7 @@ Route::group([
 ], function () {
     Route::get('statistics', 'HomeController@statistics');
 
-    // User
+    // User用户管理
     Route::get('user', 'UserController@index')->middleware(['permission:list_user']);
     Route::post('user', 'UserController@store')->middleware(['permission:create_user']);
     Route::get('user/{id}/edit', 'UserController@edit')->middleware(['permission:update_user']);
@@ -14,14 +14,14 @@ Route::group([
     Route::delete('user/{id}', 'UserController@destroy')->middleware(['permission:destroy_user']);
     Route::post('/user/{id}/status', 'UserController@status')->middleware(['permission:update_user']);
 
-    // Article
+    // Article文章管理
     Route::get('article', 'ArticleController@index')->name('api.article.index')->middleware(['permission:list_article']);
     Route::post('article', 'ArticleController@store')->name('api.article.store')->middleware(['permission:create_article']);
     Route::get('article/{id}/edit', 'ArticleController@edit')->name('api.article.edit')->middleware(['permission:update_article']);
     Route::patch('article/{id}', 'ArticleController@update')->name('api.article.update')->middleware(['permission:update_article']);
     Route::delete('article/{id}', 'ArticleController@destroy')->name('api.article.destroy')->middleware(['permission:destroy_article']);
 
-    // Category
+    // Category分类管理
     Route::get('category', 'CategoryController@index')->middleware(['permission:list_category']);
     Route::post('category', 'CategoryController@store')->middleware(['permission:create_category']);
     Route::get('category/{id}/edit', 'CategoryController@edit')->middleware(['permission:update_category']);
@@ -29,7 +29,7 @@ Route::group([
     Route::delete('category/{id}', 'CategoryController@destroy')->middleware(['permission:destroy_category']);
     Route::get('/categories', 'CategoryController@getList')->middleware(['permission:create_article|update_article']);
 
-    // Discussion
+    // Discussion讨论管理
     Route::get('discussion', 'DiscussionController@index')->middleware(['permission:list_discussion']);
     Route::post('discussion', 'DiscussionController@store')->middleware(['permission:create_discussion']);
     Route::get('discussion/{id}/edit', 'DiscussionController@edit')->middleware(['permission:update_discussion']);
@@ -37,20 +37,20 @@ Route::group([
     Route::delete('discussion/{id}', 'DiscussionController@destroy')->middleware(['permission:destroy_discussion']);
     Route::post('/discussion/{id}/status', 'DiscussionController@status')->middleware(['permission:update_discussion']);
 
-    // Tag
+    // Tag评论管理
     Route::get('comment', 'CommentController@index')->middleware(['permission:list_comment']);
     Route::get('comment/{id}/edit', 'CommentController@edit')->middleware(['permission:update_comment']);
     Route::patch('comment/{id}', 'CommentController@update')->middleware(['permission:update_comment']);
     Route::delete('comment/{id}', 'CommentController@destroy')->middleware(['permission:destroy_comment']);
 
-    // Tag
+    // Tag标签管理
     Route::get('tag', 'TagController@index')->middleware(['permission:list_tag']);
     Route::post('tag', 'TagController@store')->middleware(['permission:create_tag']);
     Route::get('tag/{id}/edit', 'TagController@edit')->middleware(['permission:update_tag']);
     Route::patch('tag/{id}', 'TagController@update')->middleware(['permission:update_tag']);
     Route::delete('tag/{id}', 'TagController@destroy')->middleware(['permission:destroy_tag']);
 
-    // Link
+    // Link友情链接
     Route::get('link', 'LinkController@index')->middleware(['permission:list_link']);
     Route::post('link', 'LinkController@store')->middleware(['permission:create_link']);
     Route::get('link/{id}/edit', 'LinkController@edit')->middleware(['permission:update_link']);
@@ -80,9 +80,9 @@ Route::group([
 Route::group([
     'namespace' => 'Api',
 ], function () {
-    // File Upload
+    // File Upload文件上传
     Route::post('file/upload', 'UploadController@fileUpload')->middleware('auth:api');
-    // Edit Avatar
+    // Edit Avatar头像编辑
     Route::post('crop/avatar', 'UserController@cropAvatar')->middleware('auth:api');
 
     // Comment

@@ -15,10 +15,10 @@ Route::group(['prefix' => 'auth/github'], function () {
 // Search
 Route::get('search', 'HomeController@search');
 
-// Discussion
+// Discussion讨论管理
 Route::resource('discussion', 'DiscussionController', ['except' => 'destroy']);
 
-// User
+// User用户管理
 Route::group(['prefix' => 'user'], function () {
     Route::get('/', 'UserController@index');
 
@@ -38,7 +38,7 @@ Route::group(['prefix' => 'user'], function () {
     });
 });
 
-// User Setting
+// User Setting用户设置
 Route::group(['middleware' => 'auth', 'prefix' => 'setting'], function () {
     Route::get('/', 'SettingController@index')->name('setting.index');
     Route::get('binding', 'SettingController@binding')->name('setting.binding');
@@ -47,16 +47,16 @@ Route::group(['middleware' => 'auth', 'prefix' => 'setting'], function () {
     Route::post('notification', 'SettingController@setNotification');
 });
 
-// Link
+// Link友情链接
 Route::get('link', 'LinkController@index');
 
-// Category
+// Category分类管理
 Route::group(['prefix' => 'category'], function () {
     Route::get('{category}', 'CategoryController@show');
     Route::get('/', 'CategoryController@index');
 });
 
-// Tag
+// Tag标签管理
 Route::group(['prefix' => 'tag'], function () {
     Route::get('/', 'TagController@index');
     Route::get('{tag}', 'TagController@show');
@@ -67,6 +67,6 @@ Route::group(['prefix' => 'dashboard', 'middleware' => ['auth', 'admin']], funct
    Route::get('{path?}', 'HomeController@dashboard')->where('path', '[\/\w\.-]*');
 });
 
-// Article
+// Article文章管理
 Route::get('/', 'ArticleController@index');
 Route::get('{slug}', 'ArticleController@show');
