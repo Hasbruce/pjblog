@@ -18,10 +18,6 @@ import locales from 'lang/index'
 
 import App from './App.vue'
 
-import ElementUI from 'element-ui';
-import 'element-ui/lib/theme-chalk/index.css';
-Vue.use(ElementUI);
-
 require('dashboard/runtime/mixins/index')
 
 window.marked = require('marked')

@@ -41,11 +41,5 @@
     "vue-router": "^2.8.1",
     "vue-template-compiler": "^2.6.8",
     "vuex": "^2.5.0"
-  },
-  "dependencies": {
-    "element-ui": "^2.15.3",
-    "less-loader": "^10.0.1",
-    "vux": "^2.9.6",
-    "vux-loader": "^1.2.9"
   }
 }
