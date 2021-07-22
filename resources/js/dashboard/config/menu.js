@@ -36,6 +36,11 @@ export default [{
     permission: 'LIST_LINK',
     icon: 'fas fa-globe',
     uri: { name: 'dashboard.link' }
+  },{
+    label: 'sidebar.finance',
+    permission:'FINANCE',
+    icon: 'fas fa-book',
+    uri: { name: 'dashboard.finance'}
   }]
 }, {
   label: 'sidebar.modules.base',

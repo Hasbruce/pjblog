@@ -66,4 +66,10 @@ return [
 
     // System
     'list_system_info' => '系统信息',
+
+    // Finance
+    'list_finance' => '财务列表',
+    'create_finance' => '创建财务',
+    'update_finance' => '更新财务',
+    'destroy_finance' => '删除财务',
 ];
